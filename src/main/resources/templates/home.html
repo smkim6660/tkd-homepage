@@ -1,10 +1,44 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="utf-8">
-        <title>홈페이지</title>
-    </head>
-    <body>
-        <h1 th:text="${message}">기본 메시지</h1>
-    </body>
+
+<head>
+    <meta charset="utf-8">
+    <title>대한태권도협회</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+    <header>
+        <h1>대한태권도협회</h1>
+    </header>
+
+    <nav>
+        <a th:href="@{/notice}">공지사항</a>
+        <a th:href="@{/schedule}">대회 일정</a>
+        <a th:href="@{/resources}">자료실</a>
+    </nav>
+
+    <div class="container">
+        <div class="section">
+            <h2>공지사항</h2>
+            <ul>
+                <li><a href="#">[공지] 2025년도 승단 심사 일정 안내</a></li>
+                <li><a href="#">[공지] 경기 규칙 개정 공지</a></li>
+                <li><a href="#">[공지] 국가대표 선발 대회 일정 변경</a></li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>다가오는 대회</h2>
+            <ul>
+                <li>제47회 전국체전 - 5월 20일 서울</li>
+                <li>2025 U-21 아시아대회 - 6월 15일 대전</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        © 대한태권도협회 | 서울특별시 종로구 | 대표전화: 02-123-4567
+    </footer>
+</body>
+
 </html>
