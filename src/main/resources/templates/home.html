@@ -5,6 +5,9 @@
     <meta charset="utf-8">
     <title>대한태권도협회</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 
 <body>
@@ -17,6 +20,14 @@
         <a th:href="@{/schedule}">대회 일정</a>
         <a th:href="@{/resources}">자료실</a>
     </nav>
+
+    <div>
+
+    <div class="fade-banner">
+        <img class="banner-img show" src="/images/banner1.jpg" />
+        <img class="banner-img" src="/images/banner2.jpg" />
+        <img class="banner-img" src="/images/banner3.jpg" />
+    </div>
 
     <div class="container">
         <div class="section">
@@ -42,3 +53,14 @@
 </body>
 
 </html>
+
+<script>
+    const banners = $(".banner-img");
+    let current = 0;
+    
+    setInterval(() => {
+        banners.eq(current).removeClass("show");
+        current = (current + 1) % banners.length;
+        banners.eq(current).addClass("show");
+    }, 3000);
+</script>
