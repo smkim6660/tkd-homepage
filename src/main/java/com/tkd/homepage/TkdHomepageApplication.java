@@ -1,4 +1,4 @@
-package com.tkd.homepage.tkd_homepage;
+package com.tkd.homepage;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
