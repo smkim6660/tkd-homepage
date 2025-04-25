@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <title th:text="${notice.title}">공지 상세</title>
+    </head>
+    <body>
+        <h1 th:text="${notice.title}">공지 제목</h1>
+        <p th:text="${#temporals.format(notice.createdAt, 'yyyy-MM-dd HH:mm')}">작성일</p>
+        <div th:text="${notice.content}">공지 내용</div>
+        <br>
+        <a th:href="@{/notice}">← 목록으로</a>
+    </body>
+</html>
