@@ -6,7 +6,8 @@ body {
     color: #222222;
 }
 
-header, footer {
+header,
+footer {
     background: #0055aa;
     color: white;
     padding: 1rem;
@@ -66,7 +67,8 @@ a:hover {
 .fade-banner {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 6; /* 비율 유지 (16:6) */
+    aspect-ratio: 16 / 6;
+    /* 비율 유지 (16:6) */
     overflow: hidden;
 }
 
@@ -84,4 +86,160 @@ a:hover {
 .banner-img.show {
     opacity: 1;
     z-index: 1;
+}
+
+/* form.html */
+.form-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 2rem;
+    background: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+}
+
+.form-container h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #0055aa;
+}
+
+.form-container input[type="text"],
+.form-container textarea {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 1rem;
+    background: #0055aa;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background: #004080;
+}
+
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+    color: #0055aa;
+    text-decoration: none;
+}
+
+/* list.html */
+.list-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 2rem;
+    background: #ffffff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 12px;
+}
+
+.list-container h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #0055aa;
+}
+
+.notice-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.notice-item:last-child {
+    border-bottom: none;
+}
+
+.notice-item a {
+    text-decoration: none;
+    color: #222;
+    font-weight: bold;
+    flex: 1;
+}
+
+.notice-item a:hover {
+    color: #0055aa;
+}
+
+.notice-date {
+    color: #888;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    margin-left: 1rem;
+}
+
+.new-btn {
+    display: block;
+    margin: 2rem auto 0;
+    padding: 1rem 2rem;
+    background: #0055aa;
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1rem;
+    width: 200px;
+}
+
+.new-btn:hover {
+    background: #004080;
+}
+
+/* view.html */
+.view-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 2rem;
+    background: #ffffff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 12px;
+}
+
+.view-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #222;
+}
+
+.view-date {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 2rem;
+}
+
+.view-content {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 3rem;
+    white-space: pre-line; /* 줄바꿈 보존 */
+}
+
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 2rem;
+    color: #0055aa;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-link:hover {
+    color: #004080;
 }

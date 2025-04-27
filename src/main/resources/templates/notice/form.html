@@ -4,17 +4,19 @@
 <head>
     <meta charset="utf-8">
     <title>공지 작성</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
 <body>
-    <h1>새 공지 작성</h1>
-    <form th:action="@{/notice}" th:object="${notice}" method="post">
-        <input type="text" th:field="*{title}" placeholder="제목" required><br>
-        <textarea th:field="*{content}" placeholder="내용" rows="10" cols="50" required></textarea><br>
-        <button type="submit">등록</button>
-    </form>
-    <a th:href="@{/notice}">← 목록으로</a>
+    <div class="form-container">
+        <h1>새 공지 작성</h1>
+        <form th:action="@{/notice}" th:object="${notice}" method="post">
+            <input type="text" th:field="*{title}" placeholder="제목" required><br>
+            <textarea th:field="*{content}" placeholder="내용" rows="10" cols="50" required></textarea><br>
+            <button type="submit">등록</button>
+        </form>
+        <a th:href="@{/notice}" class="back-link">← 목록으로</a>
+    </div>
 </body>
 
 </html>
-
