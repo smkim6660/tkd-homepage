@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.*;
 
 import com.tkd.homepage.entity.Notice;
 import com.tkd.homepage.repository.NoticeRepository;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+
 
 @Controller
 @RequestMapping("/notice")
@@ -48,4 +52,30 @@ public class NoticeController {
         model.addAttribute("notice", notice);
         return "notice/view";
     }
+
+    // 수정
+    @GetMapping("/{id}/edit")
+    public String editNoticeForm(@PathVariable Long id, Model model) {
+        Notice notice = noticeRepository.findById(id).orElseThrow();
+        model.addAttribute("notice", notice);
+        return "notice/edit-form";
+    }
+
+    // 수정 처리
+    @PostMapping("/{id}/edit")
+    public String updateNotice(@PathVariable Long id, @ModelAttribute Notice notice) {
+        Notice existingNotice = noticeRepository.findById(id).orElseThrow();
+        existingNotice.setTitle(notice.getTitle());
+        existingNotice.setContent(notice.getContent());
+        noticeRepository.save(existingNotice);
+        return "redirect:/notice/" + id;
+    }
+
+    // 삭제 처리
+    @PostMapping("/{id}/delete")
+    public String deleteNotice(@PathVariable Long id) {
+        noticeRepository.deleteById(id);
+        return "redirect:/notice";
+    }
+    
 }

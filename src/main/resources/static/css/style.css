@@ -143,7 +143,7 @@ a:hover {
     margin: 50px auto;
     padding: 2rem;
     background: #ffffff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
 }
 
@@ -206,7 +206,7 @@ a:hover {
     margin: 50px auto;
     padding: 2rem;
     background: #ffffff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
 }
 
@@ -228,7 +228,8 @@ a:hover {
     line-height: 1.7;
     color: #333;
     margin-bottom: 3rem;
-    white-space: pre-line; /* 줄바꿈 보존 */
+    white-space: pre-line;
+    /* 줄바꿈 보존 */
 }
 
 .back-link {
@@ -242,4 +243,44 @@ a:hover {
 
 .back-link:hover {
     color: #004080;
+}
+
+.button-group {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.btn-action {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: #0055aa;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.btn-action:hover {
+    background-color: #004080;
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 2rem;
+    color: #0055aa;
+    text-decoration: none;
+    font-weight: bold;
 }

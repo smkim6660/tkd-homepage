@@ -13,6 +13,15 @@
         <p class="view-date" th:text="${#temporals.format(notice.createdAt, 'yyyy-MM-dd HH:mm')}">작성일</p>
         <div class="view-content" th:text="${notice.content}">공지 내용</div>
         <br>
+        <div class="button-group">
+            <div style="display: inline-flex; gap: 1rem;">
+                <a th:href="@{'/notice/' + ${notice.id} + '/edit'}" class="new-action">수정</a>
+                <form th:action="@{'/notice/' + ${notice.id} + '/delete'}" method="post" style="display: inline;">
+                    <button type="submit" class="new-action delete-btn">🗑️ 삭제</button>
+                </form>
+            </div>
+        </div>
+
         <a th:href="@{/notice}" class="back-link">← 목록으로</a>
     </div>
 </body>
