@@ -8,6 +8,8 @@
 </head>
 
 <body>
+    <div th:replace="common/header :: header"></div>
+    
     <div class="form-container">
         <h1>새 공지 작성</h1>
         <form th:action="@{/notice}" th:object="${notice}" method="post">
