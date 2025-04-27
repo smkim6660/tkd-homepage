@@ -1,8 +1,12 @@
 package com.tkd.homepage.repository;
 
 import com.tkd.homepage.entity.Notice;
-import org.springframework.data.jpa.repository.JpaRepository;
+
 import java.util.List;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface NoticeRepository extends JpaRepository<Notice, Long> {
     
@@ -10,8 +14,8 @@ public interface NoticeRepository extends JpaRepository<Notice, Long> {
     List<Notice> findTop5ByOrderByCreatedAtDesc();
 
     // 제목에 키워드가 포함된 공지사항 찾기
-    List<Notice> findByTitleContainingIgnoreCase(String keyword);
+    Page<Notice> findByTitleContainingIgnoreCase(String keyword, Pageable pageable);
 
     // 제목+내용 키워드가 포함된 공지사항 찾기
-    List<Notice> findByTitleContainingIgnoreCaseOrContentContainingIgnoreCase(String titleKeyword, String contentKeyword);
+    Page<Notice> findByTitleContainingIgnoreCaseOrContentContainingIgnoreCase(String titleKeyword, String contentKeyword, Pageable pageable);
 }

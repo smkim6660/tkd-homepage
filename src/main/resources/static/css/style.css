@@ -325,3 +325,33 @@ a:hover {
     border-radius: 8px;
     cursor: pointer;
 }
+
+.pagination {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.page-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #f0f0f0;
+    color: #333;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.page-link:hover {
+    background-color: #0055aa;
+    color: white;
+}
+
+.page-link.active {
+    background-color: #0055aa;
+    color: white;
+    font-weight: bold;
+}
