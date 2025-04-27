@@ -11,17 +11,7 @@
 </head>
 
 <body>
-    <header>
-        <h1>경기도태권도협회</h1>
-    </header>
-
-    <nav>
-        <a th:href="@{/notice}">공지사항</a>
-        <a th:href="@{/schedule}">대회 일정</a>
-        <a th:href="@{/resources}">자료실</a>
-    </nav>
-
-    <div>
+    <div th:replace="common/header :: header"></div>
 
     <div class="fade-banner">
         <img class="banner-img show" src="/images/banner1.jpg" />
@@ -35,7 +25,7 @@
             <ul>
                 <li th:each="n : ${notices}">
                     <a th:href="@{'/notice/' + ${n.id}}" th:text="${n.title}">제목</a>
-                    <span th:text="${#temporals.format(n.createdAt, 'yyyy-MM-dd')}"></span>
+                    <span th:text="${#temporals.format(n.updatedAt, 'yyyy-MM-dd')}"></span>
                 </li>
                 <!-- <li><a href="#">[공지] 2025년도 승단 심사 일정 안내</a></li>
                 <li><a href="#">[공지] 경기 규칙 개정 공지</a></li>

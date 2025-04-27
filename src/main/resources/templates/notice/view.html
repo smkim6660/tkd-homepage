@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html xmlns="http://www.thymeleaf.org">
-    <head>
-        <meta charset="utf-8">
-        <title th:text="${notice.title}">공지 상세</title>
-    </head>
-    <body>
-        <h1 th:text="${notice.title}">공지 제목</h1>
-        <p th:text="${#temporals.format(notice.createdAt, 'yyyy-MM-dd HH:mm')}">작성일</p>
-        <div th:text="${notice.content}">공지 내용</div>
+
+<head>
+    <meta charset="utf-8">
+    <title th:text="${notice.title}">공지 상세</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+    <div th:replace="common/header :: header"></div>
+
+    <div class="view-container">
+        <h1 class="view-title" th:text="${notice.title}">공지 제목</h1>
+        <p class="view-date" th:text="${#temporals.format(notice.updatedAt, 'yyyy-MM-dd HH:mm')}">작성일</p>
+        <div class="view-content" th:text="${notice.content}">공지 내용</div>
         <br>
-        <a th:href="@{/notice}">← 목록으로</a>
-    </body>
+        <div class="button-group">
+            <div style="display: inline-flex; gap: 1rem;">
+                <a th:href="@{'/notice/' + ${notice.id} + '/edit'}" class="new-action">수정</a>
+                <form th:action="@{'/notice/' + ${notice.id} + '/delete'}" method="post" style="display: inline;">
+                    <button type="submit" class="new-action delete-btn">🗑️ 삭제</button>
+                </form>
+            </div>
+        </div>
+
+        <a th:href="@{/notice}" class="back-link">← 목록으로</a>
+    </div>
+</body>
+
 </html>

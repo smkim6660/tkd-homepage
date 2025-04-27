@@ -1,18 +1,36 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="utf-8">
-        <title>공지사항 목록</title>
-    </head>
-    <body>
+
+<head>
+    <meta charset="utf-8">
+    <title>공지사항 목록</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+    <div th:replace="common/header :: header"></div>
+
+    <div class="list-container">
         <h1>공지사항</h1>
-        <a th:href="@{/notice/new}">➕ 새 공지 작성</a>
+        <div class="search-form">
+            <form th:action="@{/notice}" method="get">
+                <select name="mode">
+                    <option value="title" th:selected="${mode} == 'title'">제목</option>
+                    <option value="all" th:selected="${mode} == 'all'">제목 + 내용</option>
+                </select>
+                <input type="text" name="keyword" placeholder="제목 검색" th:value="${keyword}">
+                <button type="submit">검색</button>
+            </form>
+        </div>
         <ul>
-            <li th:each="n : ${notices}">
+            <li th:each="n : ${notices}" class="notice-item">
                 <a th:href="@{'/notice/' + ${n.id}}" th:text="${n.title}">제목</a>
-                <span th:text="${#temporals.format(n.createdAt, 'yyyy-MM-dd')}"></span>
+                <span class="notice-date" th:text="${#temporals.format(n.updatedAt, 'yyyy-MM-dd')}"></span>
             </li>
         </ul>
-        <a th:href="@{/}">← 홈으로</a>
-    </body>
+        <a th:href="@{/notice/new}" class="new-btn">➕ 새 공지 작성</a>
+        <a th:href="@{/}" class="back-link">← 홈으로</a>
+    </div>
+</body>
+
 </html>
