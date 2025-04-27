@@ -11,8 +11,6 @@ import com.tkd.homepage.repository.NoticeRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-
-
 @Controller
 @RequestMapping("/notice")
 public class NoticeController {
@@ -25,9 +23,25 @@ public class NoticeController {
 
     // 목록
     @GetMapping
-    public String getAllList(Model model) {
-        List<Notice> notices = noticeRepository.findAll();
+    public String getList(@RequestParam(required = false) String keyword,
+                          @RequestParam(required = false, defaultValue = "title") String mode, 
+                          Model model) {
+        List<Notice> notices;
+
+        if (keyword != null && !keyword.isEmpty()) {
+            if ("all".equals(mode)) {
+                notices = noticeRepository.findByTitleContainingIgnoreCaseOrContentContainingIgnoreCase(keyword, keyword);
+            } else {
+                notices = noticeRepository.findByTitleContainingIgnoreCase(keyword);
+            }
+        } else {
+            notices = noticeRepository.findAll();
+        }
+
         model.addAttribute("notices", notices);
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("mode", mode);
+
         return "notice/list";
     }
 
@@ -77,5 +91,5 @@ public class NoticeController {
         noticeRepository.deleteById(id);
         return "redirect:/notice";
     }
-    
+
 }
