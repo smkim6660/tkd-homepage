@@ -16,10 +16,17 @@ public class Notice {
     private String content;
 
     private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
     @PrePersist
     public void prePersist() {
         this.createdAt = LocalDateTime.now();
+        this.updatedAt = this.createdAt;
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        this.updatedAt = LocalDateTime.now();
     }
 
     // Getters
@@ -34,6 +41,9 @@ public class Notice {
     }
     public LocalDateTime getCreatedAt() {
         return createdAt;
+    }
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
     }
 
     // Setters

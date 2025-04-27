@@ -9,10 +9,10 @@
 
 <body>
     <div th:replace="common/header :: header"></div>
-    
+
     <div class="view-container">
         <h1 class="view-title" th:text="${notice.title}">공지 제목</h1>
-        <p class="view-date" th:text="${#temporals.format(notice.createdAt, 'yyyy-MM-dd HH:mm')}">작성일</p>
+        <p class="view-date" th:text="${#temporals.format(notice.updatedAt, 'yyyy-MM-dd HH:mm')}">작성일</p>
         <div class="view-content" th:text="${notice.content}">공지 내용</div>
         <br>
         <div class="button-group">
