@@ -8,7 +8,7 @@ body {
 
 header,
 footer {
-    background: #0055aa;
+    background: #474949;
     color: white;
     padding: 1rem;
     text-align: center;
@@ -58,14 +58,44 @@ li {
 }
 
 a {
-    color: #0055aa;
+    color: #000000;
 }
 
-a:hover {
+.notice-list {
+    flex: 1;
+    min-width: 300px;
+}
+
+.notice-list h2 {
+    margin-top: -0.25rem;
+    margin-bottom: 1rem;
+}
+
+.notice-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.notice-list li {
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.notice-list a {
+    text-decoration: none;
+    color: black;
+}
+
+.notice-list a:hover {
     color: #ff6600;
 }
 
-.fade-banner {
+.banner-container {
     position: relative;
     width: 100%;
     aspect-ratio: 16 / 6;
@@ -377,4 +407,35 @@ a:hover {
 .menu {
     display: flex;
     gap: 2rem;
+}
+
+#quick-menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 4rem 0;
+}
+
+#news-cards {
+    padding: 2rem;
+}
+
+#news-cards h2 {
+    margin-bottom: 1rem;
+}
+
+#notice-and-video {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 2rem;
+    padding: 2rem;
+    flex-wrap: wrap;
+}
+
+.video-section {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
 }

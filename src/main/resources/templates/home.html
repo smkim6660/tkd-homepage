@@ -11,36 +11,64 @@
 </head>
 
 <body>
+    <!-- 공통 헤더 (메뉴바) -->
     <div th:replace="common/header :: header"></div>
 
-    <div class="fade-banner">
-        <img class="banner-img show" src="/images/banner1.jpg" />
-        <img class="banner-img" src="/images/banner2.jpg" />
-        <img class="banner-img" src="/images/banner3.jpg" />
-    </div>
+    <!-- 메인 캐치프레이즈 -->
+    <!-- <section id="main-slogan" style="text-align: center; padding: 4rem 2rem;">
+        <h1 style="font-size: 3rem; font-weight: bold;">NO <span style="color: #0055aa;">PAIN!</span> NO <span style="color: #0055aa;">GAIN!</span></h1>
+    </section> -->
 
-    <div class="container">
-        <div class="section">
-            <h2>공지사항</h2>
+    <!-- 슬라이드 배너 -->
+    <section id="main-banner">
+        <div class="banner-container">
+            <img class="banner-img show" src="/images/banner1.jpg" />
+            <img class="banner-img" src="/images/banner2.jpg" />
+            <img class="banner-img" src="/images/banner3.jpg" />
+        </div>
+    </section>
+
+    <!-- 주요 바로가기 버튼 (대회접수, 유품단조회, 자격증조회...) -->
+    <section id="quick-menu">
+        <div class="quick-item">대회접수</div>
+        <div class="quick-item">유품단 조회</div>
+        <div class="quick-item">자격증 조회</div>
+        <div class="quick-item">각종 신청</div>
+        <div class="quick-item">대회 영상</div>
+        <div class="quick-item">자료실</div>
+    </section>
+
+    <!-- 최신 뉴스 카드 -->
+    <section id="news-cards">
+        <h2>GTA News</h2>
+        <a>경기도태권도협회의 소식과 정보를 전해드립니다.</a>
+        <div class="news-grid">
+            <!-- 최신 뉴스 카드 반복 -->
+        </div>
+    </section>
+
+    <section id="notice-and-video">
+        <!-- 공지사항 리스트 -->
+        <div class="notice-list">
+            <h2>GTA Notice</h2>
             <ul>
                 <li th:each="n : ${notices}">
                     <a th:href="@{'/notice/' + ${n.id}}" th:text="${n.title}">제목</a>
-                    <span th:text="${#temporals.format(n.updatedAt, 'yyyy-MM-dd')}"></span>
+                    <span th:text="${#temporals.format(n.updatedAt, 'yyyy-MM-dd')}" style="color: gray; font-size: 0.9rem;"></span>
                 </li>
-                <!-- <li><a href="#">[공지] 2025년도 승단 심사 일정 안내</a></li>
-                <li><a href="#">[공지] 경기 규칙 개정 공지</a></li>
-                <li><a href="#">[공지] 국가대표 선발 대회 일정 변경</a></li> -->
             </ul>
             <a th:href="@{/notice}">📋 전체 공지 보기</a>
         </div>
-        <div class="section">
-            <h2>다가오는 대회</h2>
-            <ul>
-                <li>제47회 전국체전 - 5월 20일 서울</li>
-                <li>2025 U-21 아시아대회 - 6월 15일 대전</li>
-            </ul>
-        </div>
-    </div>
+        <!-- Youtube 동영상 -->
+         <div class="video-section">
+            <iframe width="100%" height="250" 
+                    src="https://www.youtube.com/embed/eKWEGHdxj9o" 
+                    title="YouTube" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+         </div>
+    </section>
 
     <footer>
         © 대한태권도협회 | 서울특별시 종로구 | 대표전화: 02-123-4567
@@ -52,7 +80,7 @@
 <script>
     const banners = $(".banner-img");
     let current = 0;
-    
+
     setInterval(() => {
         banners.eq(current).removeClass("show");
         current = (current + 1) % banners.length;
