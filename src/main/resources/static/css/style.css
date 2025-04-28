@@ -430,11 +430,13 @@ a {
     justify-content: center;
     flex-wrap: wrap;
     gap: 2rem;
-    margin: 4rem 0;
+    margin: 3rem 0;
+    margin-bottom: 0rem;
 }
 
 #news-cards {
     padding: 2rem;
+    margin-top: -1rem;
 }
 
 #news-cards h2 {
