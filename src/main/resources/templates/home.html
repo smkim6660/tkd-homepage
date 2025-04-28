@@ -54,8 +54,7 @@
             <ul>
                 <li th:each="n : ${notices}">
                     <a th:href="@{'/notice/' + ${n.id}}" th:text="${n.title}">제목</a>
-                    <span th:text="${#temporals.format(n.updatedAt, 'yyyy-MM-dd')}"
-                        style="color: gray; font-size: 0.9rem;"></span>
+                    <span th:text="${#temporals.format(n.updatedAt, 'yyyy-MM-dd')}"></span>
                 </li>
             </ul>
             <a th:href="@{/notice}">📋 전체 공지 보기</a>
