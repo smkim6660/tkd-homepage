@@ -15,15 +15,15 @@ footer {
 }
 
 nav {
-    background: #0077cc;
-    color: white;
+    background: #ffffff;
+    color: rgb(255, 255, 255);
     padding: 0.5rem;
     text-align: center;
     margin-top: 0.5rem;
 }
 
 nav a {
-    color: white;
+    color: rgb(0, 0, 0);
     margin: 0 1rem;
     text-decoration: none;
     font-weight: bold;
@@ -354,4 +354,27 @@ a:hover {
     background-color: #0055aa;
     color: white;
     font-weight: bold;
+}
+
+.header {
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 32px;
+    object-fit: contain;
+}
+
+.menu {
+    display: flex;
+    gap: 2rem;
 }
