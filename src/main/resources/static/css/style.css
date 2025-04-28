@@ -513,3 +513,17 @@ a {
     color: gray;
     font-size: 0.9rem;
 }
+
+.quick-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    text-align: center;
+}
+
+.quick-item img {
+    width: 53px;
+    height: 48px;
+    margin-bottom: 0.5rem;
+}
