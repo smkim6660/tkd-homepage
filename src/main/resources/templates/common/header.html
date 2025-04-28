@@ -1,11 +1,17 @@
 <div th:fragment="header">
     <div class="header">
-        <h1>경기도태권도협회</h1>
-        <nav>
-            <a th:href="@{/}">홈</a>
+        <!-- 로고 -->
+        <div class="logo">
+            <a th:href="@{/}">
+                <img th:src="@{images/logo.png}" alt="로고">
+            </a>
+        </div>
+        <!-- 메뉴 -->
+        <nav class="menu">
+            <a th:href="@{/}">협회소개</a>
             <a th:href="@{/notice}">공지사항</a>
-            <a th:href="@{/notice/new}">글쓰기</a>
-            <a th:href="@{/schedule}">대회 일정</a>
+            <a th:href="@{/}">알림마당</a>
+            <a th:href="@{/schedule}">대회정보</a>
             <a th:href="@{/resources}">자료실</a>
         </nav>
     </div>
