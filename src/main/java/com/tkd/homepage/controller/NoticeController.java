@@ -1,7 +1,9 @@
 package com.tkd.homepage.controller;
 
-import java.util.List;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -25,17 +27,19 @@ public class NoticeController {
     @GetMapping
     public String getList(@RequestParam(required = false) String keyword,
                           @RequestParam(required = false, defaultValue = "title") String mode, 
+                          @RequestParam(defaultValue = "0") int page,
                           Model model) {
-        List<Notice> notices;
+        Page<Notice> notices;
+        Pageable pageable = PageRequest.of(page, 5, Sort.by(Sort.Direction.DESC, "updatedAt"));
 
         if (keyword != null && !keyword.isEmpty()) {
             if ("all".equals(mode)) {
-                notices = noticeRepository.findByTitleContainingIgnoreCaseOrContentContainingIgnoreCase(keyword, keyword);
+                notices = noticeRepository.findByTitleContainingIgnoreCaseOrContentContainingIgnoreCase(keyword, keyword, pageable);
             } else {
-                notices = noticeRepository.findByTitleContainingIgnoreCase(keyword);
+                notices = noticeRepository.findByTitleContainingIgnoreCase(keyword, pageable);
             }
         } else {
-            notices = noticeRepository.findAll();
+            notices = noticeRepository.findAll(pageable);
         }
 
         model.addAttribute("notices", notices);

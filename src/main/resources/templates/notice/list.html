@@ -23,11 +23,28 @@
             </form>
         </div>
         <ul>
-            <li th:each="n : ${notices}" class="notice-item">
+            <li th:each="n : ${notices.content}" class="notice-item">
                 <a th:href="@{'/notice/' + ${n.id}}" th:text="${n.title}">제목</a>
                 <span class="notice-date" th:text="${#temporals.format(n.updatedAt, 'yyyy-MM-dd')}"></span>
             </li>
         </ul>
+        <div class="pagination">
+            <!-- 이전 버튼 -->
+            <span th:if="${notices.hasPrevious()}">
+                <a th:href="@{/notice(page=${notices.number - 1}, keyword=${keyword}, mode=${mode})}" class="page-link">이전</a>
+            </span>
+            <!-- 페이지 번호 버튼 (앞뒤2 범위만) -->
+            <span th:each="i : ${#numbers.sequence(0, notices.totalPages - 1)}" 
+                  th:if="${i >= notices.number - 2 and i <= notices.number + 2}" style="margin: 0 0.5rem;">
+                <a th:href="@{/notice(page=${i}, keyword=${keyword}, mode=${mode})}" 
+                   th:text="${i + 1}"
+                   th:class="'page-link' + (${i == notices.number} ? 'active' : '')"></a>
+            </span>
+            <!-- 다음 버튼 -->
+            <span th:if="${notices.hasNext()}">
+                <a th:href="@{/notice(page=${notices.number + 1}, keyword=${keyword}, mode=${mode})}" class="page-link">다음</a>
+            </span>
+        </div>
         <a th:href="@{/notice/new}" class="new-btn">➕ 새 공지 작성</a>
         <a th:href="@{/}" class="back-link">← 홈으로</a>
     </div>
