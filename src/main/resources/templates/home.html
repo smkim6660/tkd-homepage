@@ -54,20 +54,21 @@
             <ul>
                 <li th:each="n : ${notices}">
                     <a th:href="@{'/notice/' + ${n.id}}" th:text="${n.title}">제목</a>
-                    <span th:text="${#temporals.format(n.updatedAt, 'yyyy-MM-dd')}" style="color: gray; font-size: 0.9rem;"></span>
+                    <span th:text="${#temporals.format(n.updatedAt, 'yyyy-MM-dd')}"
+                        style="color: gray; font-size: 0.9rem;"></span>
                 </li>
             </ul>
             <a th:href="@{/notice}">📋 전체 공지 보기</a>
         </div>
         <!-- Youtube 동영상 -->
-         <div class="video-section">
-            <iframe width="100%" height="250" 
-                    src="https://www.youtube.com/embed/eKWEGHdxj9o" 
-                    title="YouTube" 
-                    frameborder="0" 
+        <div class="video-section">
+            <div>
+                <iframe src="https://www.youtube.com/embed/eKWEGHdxj9o"
+                    frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen></iframe>
-         </div>
+            </div>
+        </div>
     </section>
 
     <footer>
