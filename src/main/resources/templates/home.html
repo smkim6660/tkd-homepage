@@ -22,9 +22,14 @@
     <!-- 슬라이드 배너 -->
     <section id="main-banner">
         <div class="banner-container">
-            <img class="banner-img show" src="/images/banner1.jpg" />
+            <img class="banner-img active" src="/images/banner1.jpg" />
             <img class="banner-img" src="/images/banner2.jpg" />
             <img class="banner-img" src="/images/banner3.jpg" />
+        </div>
+        <div class="indicators">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
         </div>
     </section>
 
@@ -117,12 +122,44 @@
 </html>
 
 <script>
-    const banners = $(".banner-img");
-    let current = 0;
+    $(document).ready(function() {
+        let current = 0;
+        let timer = null;
+        const $banners = $(".banner-img");
+        const $dots = $(".dot");
+        const total = $banners.length;
 
-    setInterval(() => {
-        banners.eq(current).removeClass("show");
-        current = (current + 1) % banners.length;
-        banners.eq(current).addClass("show");
-    }, 3000);
+        function showBanners(index) {
+            $banners.removeClass('active').eq(index).addClass('active');
+            $dots.removeClass('active').eq(index).addClass('active');
+        }
+
+        function activeBanners() {
+            current = (current + 1) % total;
+            showBanners(current);
+        }
+
+        function startTimer() {
+            timer = setInterval(activeBanners, 3000);
+        }
+
+        function resetTimer() {
+            clearInterval(timer);
+            startTimer();
+        }
+        
+        // 자동 배너 타이머 시작
+        startTimer();
+
+        // dot 수동 클릭 이벤트
+        $dots.each(function(i) {
+            $(this).on('click', function() {
+                current = i;
+                showBanners(i);
+                resetTimer();
+            });
+        });
+
+    });
+
 </script>

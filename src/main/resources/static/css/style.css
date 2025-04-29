@@ -116,7 +116,7 @@ a {
     width: 100%;
     aspect-ratio: 16 / 6;
     /* 비율 유지 (16:6) */
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .banner-img {
@@ -130,7 +130,7 @@ a {
     transition: opacity 1s ease-in-out;
 }
 
-.banner-img.show {
+.banner-img.active {
     opacity: 1;
     z-index: 1;
 }
@@ -526,4 +526,32 @@ a {
     width: 53px;
     height: 48px;
     margin-bottom: 0.5rem;
+}
+
+#main-banner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    z-index: 10;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #0055aa;
 }
